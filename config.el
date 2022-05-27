@@ -80,7 +80,15 @@
 (setq evil-split-window-below t
       evil-vsplit-window-right t)
 
-
+;; treemacs
 (after! treemacs
   (setq treemacs-collapse-dirs 2)
   (setq treemacs-width-is-initially-locked nil))
+
+;; .properties file
+(use-package! lsp-java-boot
+  :after lsp-mode
+  :preface
+  (add-hook! 'conf-javaprop-mode-hook #'lsp)
+  (add-hook! 'java-mode-hook #'lsp-lens-mode)
+  (add-hook! 'java-mode-hook #'lsp-java-boot-lens-mode))
