@@ -32,7 +32,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-Iosvkem)
+;; (setq doom-theme 'doom-Iosvkem)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -80,10 +80,17 @@
 (setq evil-split-window-below t
       evil-vsplit-window-right t)
 
+(use-package! treemacs-all-the-icons
+  :after treemacs)
+
 ;; treemacs
 (after! treemacs
+  (setq doom-themes-treemacs-theme "all-the-icons")
+  (doom-themes-treemacs-config)
+  ;; (treemacs-resize-icons 16)
   (setq treemacs-collapse-dirs 2)
-  (setq treemacs-width-is-initially-locked nil))
+  ;; (setq treemacs-width-is-initially-locked nil)
+  )
 
 ;; .properties file
 (use-package! lsp-java-boot
@@ -92,3 +99,19 @@
   (add-hook! 'conf-javaprop-mode-hook #'lsp)
   (add-hook! 'java-mode-hook #'lsp-lens-mode)
   (add-hook! 'java-mode-hook #'lsp-java-boot-lens-mode))
+
+;; treemacs theme
+(use-package! doom-themes
+  :ensure t
+  :config
+  ;; Global settings (defaults)
+  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+        doom-themes-enable-italic t) ; if nil, italics is universally disabled
+
+  (load-theme 'doom-Iosvkem t)
+
+  ;; Enable flashing mode-line on errors
+  (doom-themes-visual-bell-config)
+
+  ;; Corrects (and improves) org-mode's native fontification.
+  (doom-themes-org-config))
