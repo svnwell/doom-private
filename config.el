@@ -97,6 +97,7 @@
   :after lsp-mode
   :preface
   (add-hook! 'conf-javaprop-mode-hook #'lsp)
+  (add-hook! 'groovy-mode-hook #'lsp)
   (add-hook! 'java-mode-hook #'lsp-lens-mode)
   (add-hook! 'java-mode-hook #'lsp-java-boot-lens-mode))
 
