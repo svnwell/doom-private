@@ -116,3 +116,12 @@
 
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config))
+
+;; Custom key bindings
+(map! :leader
+      :desc "Set mark"  "SPC"   #'set-mark-command
+      (:prefix-map ("c" . "code")
+       :desc "Comment line"  ";"        #'comment-line
+       (:when (and (featurep! :tools lsp) (not (featurep! :tools lsp +eglot)))
+        (:when (featurep! :ui treemacs +lsp)
+         :desc "Errors list"    "x"     #'lsp-treemacs-errors-list))))
