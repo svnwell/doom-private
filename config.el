@@ -101,6 +101,18 @@
   (add-hook! 'java-mode-hook #'lsp-lens-mode)
   (add-hook! 'java-mode-hook #'lsp-java-boot-lens-mode))
 
+;; lombok
+(use-package! lsp-java
+  :config
+  (setq lsp-java-vmargs '(
+                          "-noverify"
+                          "-Xmx1G"
+                          "-XX:+UseG1GC"
+                          "-XX:+UseStringDeduplication"
+                          "-javaagent:/home/sven7/.m2/repository/org/projectlombok/lombok/1.18.22/lombok-1.18.22.jar"
+                          "-Xbootclasspath/a:/home/sven7/.m2/repository/org/projectlombok/lombok/1.18.22/lombok-1.18.22.jar"))
+  )
+
 ;; treemacs theme
 (use-package! doom-themes
   :ensure t
