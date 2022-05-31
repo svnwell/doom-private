@@ -3,7 +3,6 @@
 # --
 package `(+java-current-package)`;
 
-public @interface `(+java-current-class)`
-{
+public @interface `(+java-current-class)` {
     $0
 }

@@ -3,7 +3,6 @@
 # --
 package `(+java-current-package)`;
 
-public enum `(+java-current-class)`
-{
+public enum `(+java-current-class)` {
     $0
 }

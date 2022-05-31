@@ -3,6 +3,5 @@
 # --
 package `(+java-current-package)`;
 
-public record `(+java-current-class)`($0) $1
-{
+public record `(+java-current-class)`($0) $1 {
 }
