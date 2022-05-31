@@ -88,6 +88,8 @@
   (setq doom-themes-treemacs-theme "all-the-icons")
   (doom-themes-treemacs-config)
   ;; (treemacs-resize-icons 16)
+  (setq treemacs--dirs-to-collapse\.py
+        (expand-file-name "script/treemacs-dirs-to-collapse.py" doom-private-dir))
   (setq treemacs-collapse-dirs 2)
   ;; (setq treemacs-width-is-initially-locked nil)
   )
@@ -137,3 +139,7 @@
        (:when (and (featurep! :tools lsp) (not (featurep! :tools lsp +eglot)))
         (:when (featurep! :ui treemacs +lsp)
          :desc "Errors list"    "x"     #'lsp-treemacs-errors-list))))
+
+(after! yasnippet
+  (setq +file-templates-dir
+        (expand-file-name "templates/" doom-private-dir)))
